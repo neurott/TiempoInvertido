@@ -20,6 +20,4 @@ public class WatchedMovie {
 
     private LocalDateTime watchedAt;
 
-    private Integer rating;
-
 }
