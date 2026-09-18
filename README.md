@@ -1,6 +1,7 @@
 # TiempoPerdido
 
 Tracker personal de series y películas, como Trakt/TV Time. Proyecto personal. ¿Por qué? Porque sí.
+  Escrito en inglés sipo
 
 ## Stack
 
