@@ -22,8 +22,7 @@ public class WatchedEpisodeService {
     }
 
     public WatchedEpisode markAsWatched(Long episodeId){
-        Episode episode = episodeRepo
-                .findById(episodeId)
+        Episode episode = episodeRepo.findById(episodeId)
                 .orElseThrow(() -> new RuntimeException("EPISODE NOT FOUND: " + episodeId));
 
 
