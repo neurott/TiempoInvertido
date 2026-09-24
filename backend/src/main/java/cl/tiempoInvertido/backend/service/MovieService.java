@@ -1,5 +1,6 @@
 package cl.tiempoInvertido.backend.service;
 
+import cl.tiempoInvertido.backend.exception.MovieNotFoundException;
 import cl.tiempoInvertido.backend.model.Movie;
 import cl.tiempoInvertido.backend.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class MovieService {
     }
 
     public Movie findById(Long id){
-        return movieRepo.findById(id).orElseThrow(() -> new RuntimeException("Movie not found: " + id));
+        return movieRepo.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
     }
 
     public Movie save(Movie movie){

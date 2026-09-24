@@ -1,6 +1,7 @@
 package cl.tiempoInvertido.backend.service;
 
 
+import cl.tiempoInvertido.backend.exception.ShowNotFoundException;
 import cl.tiempoInvertido.backend.model.Show;
 import cl.tiempoInvertido.backend.repository.ShowRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class ShowService {
     }
 
     public Show findById(Long id){
-        return showRepo.findById(id).orElseThrow(() -> new RuntimeException("Show not found: " + id));
+        return showRepo.findById(id).orElseThrow(() -> new ShowNotFoundException(id));
     }
 
     public Show save(Show show){

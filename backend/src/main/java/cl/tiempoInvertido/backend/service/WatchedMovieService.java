@@ -1,5 +1,6 @@
 package cl.tiempoInvertido.backend.service;
 
+import cl.tiempoInvertido.backend.exception.MovieNotFoundException;
 import cl.tiempoInvertido.backend.model.Movie;
 import cl.tiempoInvertido.backend.model.WatchedMovie;
 import cl.tiempoInvertido.backend.repository.MovieRepository;
@@ -23,7 +24,7 @@ public class WatchedMovieService {
 
     public WatchedMovie markAsWatched(Long movieId){
         Movie movie = movieRepo.findById(movieId)
-                .orElseThrow(() -> new RuntimeException("Movie not found: " + movieId));
+                .orElseThrow(() -> new MovieNotFoundException(movieId));
 
         WatchedMovie watched = new WatchedMovie();
         watched.setMovie(movie);

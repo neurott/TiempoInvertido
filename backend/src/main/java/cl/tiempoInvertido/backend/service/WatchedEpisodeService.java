@@ -1,5 +1,6 @@
 package cl.tiempoInvertido.backend.service;
 
+import cl.tiempoInvertido.backend.exception.EpisodeNotFoundException;
 import cl.tiempoInvertido.backend.model.Episode;
 import cl.tiempoInvertido.backend.model.WatchedEpisode;
 import cl.tiempoInvertido.backend.repository.EpisodeRepository;
@@ -23,7 +24,7 @@ public class WatchedEpisodeService {
 
     public WatchedEpisode markAsWatched(Long episodeId){
         Episode episode = episodeRepo.findById(episodeId)
-                .orElseThrow(() -> new RuntimeException("EPISODE NOT FOUND: " + episodeId));
+                .orElseThrow(() -> new EpisodeNotFoundException(episodeId));
 
 
         WatchedEpisode watched = new WatchedEpisode();

@@ -1,5 +1,6 @@
 package cl.tiempoInvertido.backend.service;
 
+import cl.tiempoInvertido.backend.exception.EpisodeNotFoundException;
 import cl.tiempoInvertido.backend.model.Episode;
 import cl.tiempoInvertido.backend.repository.EpisodeRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class EpisodeService {
     }
 
     public Episode findById(Long id){
-        return episodeRepo.findById(id).orElseThrow(() -> new RuntimeException("Episode not found: " + id));
+        return episodeRepo.findById(id).orElseThrow(() -> new EpisodeNotFoundException(id));
     }
 
     public List<Episode> findByShowId(Long showId){
